@@ -1,0 +1,342 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Theme Variables ── */
+:root,
+[data-theme="dark"] {
+  --bg-main: #080810;
+  --bg-sidebar: #0a0a14;
+  --bg-card: #0a0a14;
+  --bg-input: #12121f;
+  --bg-secondary: #0d0d1e;
+  --bg-hover: #12121f;
+  --bg-topbar: rgba(8,8,16,0.8);
+  --text-primary: #fff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #64748b;
+  --text-dim: #475569;
+  --text-faint: #334155;
+  --border-soft: rgba(79,142,247,0.08);
+  --border-medium: rgba(79,142,247,0.12);
+  --border-strong: rgba(79,142,247,0.18);
+  --border-white: rgba(255,255,255,0.04);
+  --scrollbar-track: #080810;
+  --scrollbar-thumb: #1e2a40;
+  --scrollbar-hover: #2d3f5c;
+  --shadow-card: none;
+  --blue-tint: rgba(79,142,247,0.12);
+  --blue-border: rgba(79,142,247,0.2);
+  --no-bot-tint: rgba(255,255,255,0.08);
+}
+
+[data-theme="light"] {
+  --bg-main: #f0f4f8;
+  --bg-sidebar: #ffffff;
+  --bg-card: #ffffff;
+  --bg-input: #f1f5f9;
+  --bg-secondary: #f8fafc;
+  --bg-hover: #f1f5f9;
+  --bg-topbar: rgba(255,255,255,0.85);
+  --text-primary: #1e293b;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-dim: #94a3b8;
+  --text-faint: #cbd5e1;
+  --border-soft: rgba(0,0,0,0.06);
+  --border-medium: rgba(0,0,0,0.08);
+  --border-strong: rgba(79,142,247,0.25);
+  --border-white: rgba(0,0,0,0.04);
+  --scrollbar-track: #f0f4f8;
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-hover: #94a3b8;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.08);
+  --blue-tint: rgba(79,142,247,0.08);
+  --blue-border: rgba(79,142,247,0.2);
+  --no-bot-tint: rgba(0,0,0,0.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg-main);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover); }
+
+a { text-decoration: none; color: inherit; }
+
+/* ── Inputs ── */
+.ark-input {
+  background: var(--bg-input);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 9px 12px;
+  color: var(--text-primary);
+  font-size: 13px;
+  width: 100%;
+  outline: none;
+  font-family: inherit;
+  transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.ark-input:focus {
+  border-color: #4f8ef7;
+  box-shadow: 0 0 0 3px rgba(79,142,247,0.1);
+}
+.ark-input::placeholder { color: var(--text-faint); }
+.ark-input:disabled { opacity: 0.45; cursor: not-allowed; }
+
+select.ark-input {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 32px;
+}
+
+/* ── Buttons ── */
+.ark-btn {
+  background: linear-gradient(135deg, #4f8ef7, #06b6d4);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  font-family: inherit;
+  transition: opacity 0.2s, transform 0.1s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.ark-btn:hover:not(:disabled) { opacity: 0.88; }
+.ark-btn:active:not(:disabled) { transform: scale(0.98); }
+.ark-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.ark-btn-ghost {
+  background: transparent;
+  color: #4f8ef7;
+  border: 1px solid rgba(79,142,247,0.25);
+  border-radius: 8px;
+  padding: 9px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 13px;
+  font-family: inherit;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.ark-btn-ghost:hover { background: rgba(79,142,247,0.1); border-color: rgba(79,142,247,0.45); }
+
+.ark-btn-danger {
+  background: rgba(239,68,68,0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: 8px;
+  padding: 9px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 13px;
+  font-family: inherit;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.ark-btn-danger:hover { background: rgba(239,68,68,0.18); }
+
+/* ── Cards ── */
+.ark-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: 14px;
+  padding: 20px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: var(--shadow-card);
+}
+.ark-card:hover { border-color: var(--border-strong); }
+.ark-card-flat {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+/* ── Badges ── */
+.ark-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.ark-badge-green  { background: rgba(16,185,129,0.12); color: #10b981; border: 1px solid rgba(16,185,129,0.2); }
+.ark-badge-blue   { background: rgba(79,142,247,0.12); color: #4f8ef7; border: 1px solid rgba(79,142,247,0.2); }
+.ark-badge-purple { background: rgba(139,92,246,0.12); color: #8b5cf6; border: 1px solid rgba(139,92,246,0.2); }
+.ark-badge-yellow { background: rgba(245,158,11,0.12); color: #f59e0b; border: 1px solid rgba(245,158,11,0.2); }
+.ark-badge-red    { background: rgba(239,68,68,0.12);  color: #ef4444; border: 1px solid rgba(239,68,68,0.2); }
+.ark-badge-gray   { background: rgba(71,85,105,0.2);   color: #64748b; border: 1px solid rgba(71,85,105,0.2); }
+
+/* ── Tables ── */
+.ark-table { width: 100%; border-collapse: collapse; }
+.ark-table thead tr { border-bottom: 1px solid var(--border-soft); }
+.ark-table th { padding: 11px 16px; text-align: left; color: var(--text-dim); font-size: 11px; font-weight: 700; letter-spacing: .06em; white-space: nowrap; }
+.ark-table tbody tr { border-bottom: 1px solid var(--border-white); transition: background 0.1s; }
+.ark-table tbody tr:hover { background: rgba(79,142,247,0.04); }
+.ark-table td { padding: 12px 16px; color: var(--text-secondary); font-size: 13px; }
+
+/* ── Divider ── */
+.ark-divider { border: none; border-top: 1px solid var(--border-soft); margin: 20px 0; }
+
+/* ── Loading spinner ── */
+@keyframes spin { to { transform: rotate(360deg); } }
+.ark-spinner {
+  width: 20px; height: 20px;
+  border: 2px solid rgba(79,142,247,0.2);
+  border-top-color: #4f8ef7;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+/* ── Page loading ── */
+.ark-page-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-main);
+  color: #4f8ef7;
+  gap: 12px;
+  font-size: 14px;
+}
+
+/* ── Theme Override: Light mode inline-style fallbacks ── */
+/* Targets common hardcoded color patterns used in inline styles */
+[data-theme="light"] .ark-layout-main { background: var(--bg-main) !important; }
+[data-theme="light"] .ark-layout-sidebar { background: var(--bg-sidebar) !important; }
+[data-theme="light"] .ark-layout-topbar { background: var(--bg-topbar) !important; border-color: var(--border-soft) !important; }
+
+
+/* ── Pulse para conversas com atendimento humano pendente ── */
+@keyframes ark-pulse-human {
+  0%, 100% { background: rgba(245,158,11,0.04); }
+  50% { background: rgba(245,158,11,0.18); }
+}
+.ark-pulse-human {
+  animation: ark-pulse-human 1.5s ease-in-out infinite;
+}
+.ark-pulse-human:hover {
+  animation: none;
+  background: rgba(245,158,11,0.22);
+}
+
+
+/* ── Mobile: conversas estilo WhatsApp smartphone ── */
+@media (max-width: 768px) {
+  /* Container principal: coluna em vez de linha */
+  .ark-wa-container { flex-direction: column !important; }
+
+  /* Painel esquerdo (lista): full width, some quando chat aberto */
+  .ark-wa-list {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex: 1;
+    display: flex !important;
+    flex-direction: column;
+    height: 100dvh !important;
+    overflow: hidden !important;
+  }
+  .ark-wa-list.ark-wa-hidden { display: none !important; }
+
+  /* Painel direito (conversa): full width, some quando sem chat selecionado */
+  .ark-wa-chat {
+    width: 100% !important;
+    flex: 1;
+    display: flex !important;
+    flex-direction: column;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    height: 100dvh !important;
+  }
+  .ark-wa-chat.ark-wa-hidden { display: none !important; }
+
+  /* Botão voltar: visível só no mobile */
+  .ark-wa-back { display: flex !important; }
+
+  /* Estado vazio: escondido no mobile */
+  .ark-wa-empty-mobile { display: none !important; }
+
+  /* Mensagens: maxWidth maior no mobile */
+  .ark-wa-chat .ark-wa-msg-bubble { max-width: 85% !important; }
+
+  /* Composer: padding menor no mobile */
+  .ark-wa-chat > div:has(.ark-wa-composer) { padding: 8px 10px !important; }
+
+  /* Header do chat: padding menor no mobile + safe-area iPhone */
+  .ark-wa-chat > div:first-child {
+    padding: 0 10px !important;
+    padding-top: env(safe-area-inset-top, 0px) !important;
+    flex-shrink: 0 !important;
+    min-height: 56px !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+  }
+
+  /* Header da lista também precisa de safe-area */
+  .ark-wa-list > div:first-child {
+    padding-top: env(safe-area-inset-top, 0px) !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Container: usar dvh no mobile também */
+  .ark-wa-container { height: 100% !important; }
+
+  /* Área de mensagens: scroll fluido no mobile */
+  .ark-wa-chat > div:nth-child(2) {
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    flex: 1 !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+  }
+
+  /* Composer: não encolher no mobile */
+  .ark-wa-chat > div:last-child { flex-shrink: 0 !important; }
+
+  /* Header: fixo no topo */
+  .ark-wa-chat > div:first-child {
+    flex-shrink: 0 !important;
+  }
+
+  /* Lista de conversas: items com padding menor */
+  .ark-wa-list .ark-wa-conv-item { padding: 10px 12px !important; }
+
+}
+/* Desktop: botão voltar escondido */
+.ark-wa-back { display: none; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .ark-hide-mobile { display: none !important; }
+  .ark-grid-1-mobile { grid-template-columns: 1fr !important; }
+}
