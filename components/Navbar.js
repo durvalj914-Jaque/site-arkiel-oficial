@@ -108,8 +108,8 @@ export default function Navbar() {
         </ul>
 
         <div className="ark-nav-cta">
-          <a href="https://arkiel.com.br/assistente-ark/entrar" className="btn-nav-ghost">Entrar</a>
-          <a href="https://arkiel.com.br/assistente-ark/entrar" className="btn-nav-primary">Começar agora →</a>
+          <a href="https://www.assistente-ark.com.br/admin" className="btn-nav-ghost">Entrar</a>
+          <a href="https://www.assistente-ark.com.br" className="btn-nav-primary">Começar agora →</a>
         </div>
 
         <button className="ark-hamburger" onClick={() => setMenuOpen(o => !o)} aria-label="Menu">
@@ -122,8 +122,8 @@ export default function Navbar() {
           <Link key={l.label} href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</Link>
         ))}
         <div className="mobile-divider" />
-        <a href="https://arkiel.com.br/assistente-ark/entrar" onClick={() => setMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.5)' }}>Entrar na conta</a>
-        <a href="https://arkiel.com.br/assistente-ark/entrar" onClick={() => setMenuOpen(false)} style={{ background: '#fff', color: '#000', fontWeight: 700, borderRadius: 8, padding: '12px 16px', textAlign: 'center' }}>Começar agora →</a>
+        <a href="https://www.assistente-ark.com.br/admin" onClick={() => setMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.5)' }}>Entrar na conta</a>
+        <a href="https://www.assistente-ark.com.br" onClick={() => setMenuOpen(false)} style={{ background: '#fff', color: '#000', fontWeight: 700, borderRadius: 8, padding: '12px 16px', textAlign: 'center' }}>Começar agora →</a>
       </div>
     </>
   )

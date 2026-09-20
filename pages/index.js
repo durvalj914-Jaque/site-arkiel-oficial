@@ -275,7 +275,7 @@ export default function Home() {
                 <span className="dot"></span>
                 Disponível
               </div>
-              <a href="https://arkiel.com.br/assistente-ark" className="product-cta">Conhecer o Ark →</a>
+              <a href="https://www.assistente-ark.com.br" className="product-cta">Conhecer o Ark →</a>
             </div>
           </div>
           <div className="product-card">
@@ -413,7 +413,7 @@ export default function Home() {
           <div className="footer-links">
             <div className="footer-col">
               <h6>Produtos</h6>
-              <a href="https://arkiel.com.br/assistente-ark">Assistente Ark</a>
+              <a href="https://www.assistente-ark.com.br">Assistente Ark</a>
               <a href="/#produtos">Azura</a>
             </div>
             <div className="footer-col">
@@ -428,7 +428,7 @@ export default function Home() {
             </div>
             <div className="footer-col">
               <h6>Acesso</h6>
-              <a href="https://arkiel.com.br/assistente-ark/entrar">Painel</a>
+              <a href="https://www.assistente-ark.com.br/admin">Painel</a>
             </div>
           </div>
         </div>
