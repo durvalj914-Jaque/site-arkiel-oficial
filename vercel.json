@@ -1,3 +1,10 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/:path((admin|painel|login|client|assistente-ark|api).*)",
+      "destination": "https://www.assistente-ark.com.br/:path",
+      "permanent": true
+    }
+  ]
 }
